@@ -1,0 +1,15 @@
+﻿Build started 22/05/2015 13:42:45.
+     1>Project "D:\DiGeom\2d\predicate_2d\predicate_2d\predicate_2d.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt digital_segment.cpp
+         digital_segment.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\DiGeom\2d\predicate_2d\Debug\predicate_2d.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\DiGeom\2d\predicate_2d\Debug\predicate_2d.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\DiGeom\2d\predicate_2d\Debug\predicate_2d.lib" /MACHINE:X86 Debug\digital_segment.obj
+         Debug\predicate_2d.obj
+         Debug\stdafx.obj
+         predicate_2d.vcxproj -> D:\DiGeom\2d\predicate_2d\Debug\predicate_2d.exe
+     1>Done Building Project "D:\DiGeom\2d\predicate_2d\predicate_2d\predicate_2d.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.70
