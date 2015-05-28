@@ -46,6 +46,9 @@ int _tmain(int argc, _TCHAR* argv[])
 		std::cout << "Digital segments are parallel\n";
 	}
 
+	bool collinear = ds | ds1;
+
+
 	// Wait until user input
 	char c;
 	std::cin >> c;

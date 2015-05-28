@@ -170,3 +170,93 @@ interval* ConvexPolygon2d::project_onto(axis anAxis) const
 
 	return intervl;
 }
+
+float cross(Vertex2d& v, Vertex2d& u)
+{
+	return v.x() * u.x() + v.y() * u.y();
+}
+
+interval* ConvexPolygon2d::project_onto(Vertex2d& anAxis) const
+{
+	interval* projection = new interval();
+	// loop over all the vertices performing the dot product with the axis
+	// and storing the minimum and maximum
+	float min = cross(this->vertex_at(0), anAxis);
+	float max = min;
+	for(size_t i = 1; i < this->size(); i++)
+	{
+		float dot_pro = cross(this->vertex_at(i), anAxis);
+		if(dot_pro < min)
+		{
+			min = dot_pro;
+		} else if(dot_pro > max)
+		{
+			max = dot_pro;
+		}
+	}
+
+	projection->begin = min;
+	projection->end = max;
+
+	return projection;
+}
+
+bool ConvexPolygon2d::collide(const ConvexPolygon2d& poly) const
+{
+	bool do_collide = true;
+	// iterate over all edges of the input poly
+	for(size_t i = 0; i < poly.size(); i++)
+	{
+		Vertex2d v0 = poly.vertex_at(i);
+		Vertex2d v1 = poly.vertex_at((i == poly.size() - 1) ? 0 : (i + 1));
+
+		float x = v1.x() - v0.x();
+		float y = v1.y() - v0.y();
+		// compute normal to the edge
+		Vector2d n(-x, y);
+
+		// Progect polygon onto the normal
+		interval* interv0 = poly.project_onto(n);
+
+		// Project "this" polygon onto the normal
+		interval* interv1 = this->project_onto(n);
+
+		// Check if projections intersect		
+		do_collide = std::max(interv0->begin, interv1->begin) <= std::min(interv0->end, interv1->end);
+		if(!do_collide)
+		{
+			return false;
+		}
+
+		// free memory
+		delete interv0;
+		delete interv1;
+	}
+
+	// iterate overl all vertices of "this" polygon
+	for(size_t i = 0; i < poly.size(); i++)
+	{
+		Vertex2d v0 = this->vertex_at(i);
+		Vertex2d v1 = this->vertex_at((i == this->size() - 1) ? 0 : (i + 1));
+
+		float x = v1.x() - v0.x();
+		float y = v1.y() - v0.y();
+		// compute normal to the edge
+		Vector2d n(-x, y);
+
+		// Progect polygon onto the normal
+		interval* interv0 = poly.project_onto(n);
+
+		// Project "this" polygon onto the normal
+		interval* interv1 = this->project_onto(n);
+
+		// Check if projections intersect	
+		do_collide = std::max(interv0->begin, interv1->begin) <= std::min(interv0->end, interv1->end);
+		if(!do_collide)
+		{
+			return false;
+		}
+	}
+
+	return true;
+}

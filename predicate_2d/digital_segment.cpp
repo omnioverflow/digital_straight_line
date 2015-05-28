@@ -160,11 +160,18 @@ bool operator || (const DigitalSegment& d0, const DigitalSegment& d1) {
 	interval* intervl1 = d1.mb_region().project_onto(X_AXIS);
 
 	// Check if two intervals on m-projections intersect 
-	bool do_intersect = std::max(intervl0->begin, intervl1->begin) <= std::min(intervl0->end, intervl1->end);
+	bool do_intersect = std::max(intervl0->begin, intervl1->begin) <= std::min(intervl0->end, intervl1->end); // if projection intervals intersect => segments are placed on parallel lines
 
 	// free memory
 	delete intervl0;
 	delete intervl1;
 
 	return do_intersect;
+}
+
+// Check if two segments are collinear
+bool operator | (const DigitalSegment& d0, const DigitalSegment& d1)
+{
+	bool do_collide = d0.mb_region().collide(d1.mb_region()); // if intersection of mb-regions is non-empty => collinear
+	return do_collide;
 }

@@ -43,7 +43,9 @@ public:
 		return output;
 	}
 
-	friend bool operator || (const DigitalSegment& d0, const DigitalSegment& d1);
+	friend bool operator || (const DigitalSegment& d0, const DigitalSegment& d1); // <-- parallel
+
+	friend bool operator | (const DigitalSegment& d0, const DigitalSegment& d1);
 
 	void push_back(const Pixel& p);
 

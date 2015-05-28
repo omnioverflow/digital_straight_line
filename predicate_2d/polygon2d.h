@@ -85,6 +85,17 @@ public:
 	{
 		return y_;
 	}
+
+	void set_x(float new_x)
+	{
+		x_ = new_x;
+	}
+
+	void set_y(float new_y)
+	{
+		y_ = new_y;
+	}
+
 	float x_;
 	float y_;
 };
