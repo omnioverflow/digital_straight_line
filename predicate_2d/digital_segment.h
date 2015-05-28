@@ -1,7 +1,8 @@
 #pragma once
 #include<vector>
 #include<iostream>
-#include "mb_region.h"
+#include<set>
+#include "convex_polygon2d.h"
 
 class Pixel 
 {
@@ -30,6 +31,7 @@ public:
 	~DigitalSegment(void);
 	const Pixel& at(size_t index) const;
 	size_t length() const;
+
 	friend std::ostream &operator << (std::ostream &output, const DigitalSegment& ds)
 	{
 		std::cout << "{\n";
@@ -40,11 +42,20 @@ public:
 		std::cout << "}\n";
 		return output;
 	}
+
 	void push_back(const Pixel& p);
-	MBRegion* mb_region();
+
+	size_t size() const 
+	{
+		return segments_->size();
+	};
+	
 	Line2d& add_pixel_constraint(Line2d& line, const Pixel& p);
-	void intersect(Line2d& line);
+
+	const ConvexPolygon2d& mb_region() { return mb_region_; };
+
+	void constraint_mb_region();
 private:	
 	std::vector<Pixel> *segments_;
-	MBRegion* mb_region_;
+	ConvexPolygon2d mb_region_;	
 };

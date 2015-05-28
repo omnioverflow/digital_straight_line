@@ -18,10 +18,12 @@ int _tmain(int argc, _TCHAR* argv[])
 		ds.push_back(Pixel(x[i], y[i]));
 	}	
 	std::cout << ds.length() << "\n";
-	std::cout<<ds;
+	//std::cout<<ds;
 
 	// Get m-b region of the segment (y = m*x + b)
-	MBRegion* mb_region = ds.mb_region(); // IMPROVE: make_mb_region and explicitly delete after using
+	ds.constraint_mb_region();
+
+	//std::cout << ds.mb_region();
 
 	// Wait until user input
 	char c;

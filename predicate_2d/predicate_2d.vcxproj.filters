@@ -27,6 +27,12 @@
     <ClInclude Include="digital_segment.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="polygon2d.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="convex_polygon2d.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -36,6 +42,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="digital_segment.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="polygon2d.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="convex_polygon2d.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
