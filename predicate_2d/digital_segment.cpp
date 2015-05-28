@@ -152,3 +152,19 @@ void DigitalSegment::constraint_mb_region()
 		}
 	}
 }
+
+// Checks if two digital segments are parallel
+bool operator || (const DigitalSegment& d0, const DigitalSegment& d1) {
+	// Project dital segment onto m-axis (slope of the line corresponding to digital segment)
+	interval* intervl0 = d0.mb_region().project_onto(X_AXIS);
+	interval* intervl1 = d1.mb_region().project_onto(X_AXIS);
+
+	// Check if two intervals on m-projections intersect 
+	bool do_intersect = std::max(intervl0->begin, intervl1->begin) <= std::min(intervl0->end, intervl1->end);
+
+	// free memory
+	delete intervl0;
+	delete intervl1;
+
+	return do_intersect;
+}

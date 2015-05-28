@@ -2,6 +2,19 @@
 #include "polygon2d.h"
 #include <set>
 #include <algorithm>
+
+struct interval
+{
+	float begin;
+	float end;
+};
+
+enum axis
+{
+	X_AXIS,
+	Y_AXIS
+};
+
 class ConvexPolygon2d :
 	public Polygon2d
 {
@@ -11,7 +24,7 @@ public:
 	void intersect_with(Line2d& line, std::set<Vertex2d>& intersection);
 	void intersect_edge(Line2d& line, Vertex2d& v0, Vertex2d& v1, std::set<Vertex2d>& intersection);
 	void recompute_convex_hull();	
-
+	interval* project_onto(axis anAxis) const;
 	
 	friend std::ostream &operator << (std::ostream &output, const ConvexPolygon2d& poly)
 	{
@@ -22,7 +35,6 @@ public:
 		}
 		std::cout << "}\n";
 		return output;
-	};
-	
+	};		
 };
 

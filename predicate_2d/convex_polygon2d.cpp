@@ -144,3 +144,29 @@ void ConvexPolygon2d::recompute_convex_hull()
 		//std::cout << "(" << vertex_at(i).x() << ", " << vertex_at(i).y << ")\n";
 	}
 }
+
+// Project a polygon on a given axis in Cartesian coordinates
+interval* ConvexPolygon2d::project_onto(axis anAxis) const
+{
+	interval* intervl = new interval();
+	if(anAxis == X_AXIS)
+	{
+		float min_x = std::numeric_limits<float>::max();
+		float max_x = std::numeric_limits<float>::min();
+		for(size_t i = 0; i < size(); i++)
+		{
+			if(vertices_.at(i).x() < min_x)
+			{
+				min_x = vertices_.at(i).x();
+			}
+			if(vertices_.at(i).x() > max_x)
+			{
+				max_x = vertices_.at(i).x();
+			}
+		}
+		intervl->begin = min_x;
+		intervl->end = max_x;
+	}
+
+	return intervl;
+}

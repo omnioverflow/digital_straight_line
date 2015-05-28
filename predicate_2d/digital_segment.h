@@ -43,6 +43,8 @@ public:
 		return output;
 	}
 
+	friend bool operator || (const DigitalSegment& d0, const DigitalSegment& d1);
+
 	void push_back(const Pixel& p);
 
 	size_t size() const 
@@ -52,7 +54,7 @@ public:
 	
 	Line2d& add_pixel_constraint(Line2d& line, const Pixel& p);
 
-	const ConvexPolygon2d& mb_region() { return mb_region_; };
+	const ConvexPolygon2d& mb_region() const { return mb_region_; };
 
 	void constraint_mb_region();
 private:	
