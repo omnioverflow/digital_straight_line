@@ -1,8 +1,10 @@
 #pragma once
 #include <deque>
 #include <iostream>
+#include <limits>
 #include <math.h>
 #include <set>
+
 class Vertex2d
 {
 public:

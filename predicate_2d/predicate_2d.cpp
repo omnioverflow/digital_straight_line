@@ -25,6 +25,27 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	//std::cout << ds.mb_region();
 
+	DigitalSegment ds1;
+	int x1[n] = {0, 1, 2, 3, 4, 5, 6, 7, 8};
+	int y1[n] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
+	for(size_t i = 0; i < n; i++)
+	{
+		ds1.push_back(Pixel(x1[i], y1[i]));
+	}	
+	ds1.constraint_mb_region();
+
+	bool parallel = ds || ds1;
+	if(parallel)
+	{
+		std::cout << "Digital segments are parallel\n";
+	}
+
+	parallel = ds || ds;
+	if(parallel)
+	{
+		std::cout << "Digital segments are parallel\n";
+	}
+
 	// Wait until user input
 	char c;
 	std::cin >> c;
