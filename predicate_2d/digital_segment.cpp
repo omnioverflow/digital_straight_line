@@ -89,10 +89,11 @@ void DigitalSegment::constraint_mb_region()
 	{
 		// process next pixel
 		Line2d line;
+		// add constraint on {m, b} (y = mx + b) imposed by the next pixel
 		this->add_pixel_constraint(line, this->at(i));
 
 		std::set<Vertex2d> intersection;
-		mb_region_.intersect_with(line, intersection);
+		mb_region_.intersect_with(line, intersection); // <-- intersect with -mx + y
 		// check lower bound
 		if(intersection.size() > 1)
 		{
@@ -117,6 +118,37 @@ void DigitalSegment::constraint_mb_region()
 			intersection.clear();
 
 			mb_region_.recompute_convex_hull();
-		}		
+		}
+
+		// change the line to -mx + y + 1
+		line.set_intersect(line.intersect_y() + 1);
+		// clear intersection
+		intersection.clear();
+		mb_region_.intersect_with(line, intersection);
+		// check upper bound
+		if(intersection.size() > 1)
+		{
+			size_t removed_count = 0;
+			size_t n = mb_region_.size();
+			for(size_t j = 0; j < n; j++)
+			{
+				Vertex2d v = mb_region_.vertex_at(j - removed_count);
+				if( v.y() > (line.slope() * v.x() + line.intersect_y()) )
+				{
+					// remove		
+					mb_region_.remove_vertex_at(j - removed_count);	
+					removed_count++;
+				}		
+			}
+
+			for(std::set<Vertex2d>::iterator it = intersection.begin(); it != intersection.end(); it++)
+			{
+				Vertex2d next_v = *it;
+				mb_region_.push_back(next_v);				
+			}
+			intersection.clear();
+
+			mb_region_.recompute_convex_hull();
+		}
 	}
 }
