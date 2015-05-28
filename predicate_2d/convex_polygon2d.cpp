@@ -106,7 +106,7 @@ void ConvexPolygon2d::recompute_convex_hull()
 	unique_vertices_.clear();
 	
 	// Find the leftmost point
-	int l = 0;
+	size_t l = 0;
 	for (int i = 1; i < n; i++)
 		if (vertex_at(i).x() < vertex_at(l).x())
 			l = i;
@@ -256,6 +256,10 @@ bool ConvexPolygon2d::collide(const ConvexPolygon2d& poly) const
 		{
 			return false;
 		}
+
+		// free memory
+		delete interv0;
+		delete interv1;
 	}
 
 	return true;
