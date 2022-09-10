@@ -18,5 +18,8 @@
 *.gch
 *.pch
 
+# VS
+*.user
+
 # VSCode
 *.vs
