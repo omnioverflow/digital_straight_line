@@ -1,8 +1,9 @@
 #pragma once
-class polygon
+
+class Polygon
 {
 public:
-	polygon(void);
-	virtual ~polygon(void);
+	Polygon(void);
+	virtual ~Polygon(void);
 };
 

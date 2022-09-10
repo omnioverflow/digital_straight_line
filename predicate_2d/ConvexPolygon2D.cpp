@@ -1,16 +1,17 @@
-#include "convex_polygon2d.h"
 #include <algorithm>
 
-ConvexPolygon2d::ConvexPolygon2d(void)
+#include "ConvexPolygon2D.h"
+
+ConvexPolygon2D::ConvexPolygon2D(void)
 {
 }
 
 
-ConvexPolygon2d::~ConvexPolygon2d(void)
+ConvexPolygon2D::~ConvexPolygon2D(void)
 {
 }
 
-void ConvexPolygon2d::intersect_edge(Line2d& line, Vertex2d& v0, Vertex2d& v1, std::set<Vertex2d>& intersection)
+void ConvexPolygon2D::intersect_edge(Line2d& line, Vertex2d& v0, Vertex2d& v1, std::set<Vertex2d>& intersection)
 {	
 	// y = cx + d  <-- edge line equation
 	float x0 = v0.x();
@@ -60,7 +61,7 @@ void ConvexPolygon2d::intersect_edge(Line2d& line, Vertex2d& v0, Vertex2d& v1, s
 	}
 }
 
-void ConvexPolygon2d::intersect_with(Line2d& line, std::set<Vertex2d>& intersection)
+void ConvexPolygon2D::intersect_with(Line2d& line, std::set<Vertex2d>& intersection)
 {
 	for(size_t i = 0; i < size(); i++)
 	{
@@ -78,7 +79,7 @@ int orientation(Vertex2d p, Vertex2d q, Vertex2d r)
 	return (val > 0)? 1: 2; // clock or counterclock wise
 }
 
-void ConvexPolygon2d::recompute_convex_hull()
+void ConvexPolygon2D::recompute_convex_hull()
 {
 	unique_vertices_.clear();
 
@@ -146,7 +147,7 @@ void ConvexPolygon2d::recompute_convex_hull()
 }
 
 // Project a polygon on a given axis in Cartesian coordinates
-interval* ConvexPolygon2d::project_onto(axis anAxis) const
+interval* ConvexPolygon2D::project_onto(axis anAxis) const
 {
 	interval* intervl = new interval();
 	if(anAxis == X_AXIS)
@@ -176,7 +177,7 @@ float cross(Vertex2d& v, Vertex2d& u)
 	return v.x() * u.x() + v.y() * u.y();
 }
 
-interval* ConvexPolygon2d::project_onto(Vertex2d& anAxis) const
+interval* ConvexPolygon2D::project_onto(Vertex2d& anAxis) const
 {
 	interval* projection = new interval();
 	// loop over all the vertices performing the dot product with the axis
@@ -201,7 +202,7 @@ interval* ConvexPolygon2d::project_onto(Vertex2d& anAxis) const
 	return projection;
 }
 
-bool ConvexPolygon2d::collide(const ConvexPolygon2d& poly) const
+bool ConvexPolygon2D::collide(const ConvexPolygon2D& poly) const
 {
 	bool do_collide = true;
 	// iterate over all edges of the input poly

@@ -1,13 +1,15 @@
 #pragma once
-#include "convex_polygon2d.h"
+
 #include <iostream>
-class Quad2d :
-	public ConvexPolygon2d
+
+#include "ConvexPolygon2D.h"
+
+class Quad2D: public ConvexPolygon2D
 {
 public:		
-	Quad2d(Vertex2d& v0, Vertex2d& v1, Vertex2d& v2, Vertex2d& v3);
-	virtual ~Quad2d(void);	
+	Quad2D(Vertex2D& v0, Vertex2D& v1, Vertex2D& v2, Vertex2D& v3);
+	virtual ~Quad2D(void);	
 private:		
-	Quad2d(void);
-	Vertex2d v[4];
+	Quad2D(void);
+	Vertex2D v[4];
 };

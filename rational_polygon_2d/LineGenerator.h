@@ -1,11 +1,13 @@
 #pragma once
-#include"boost\numeric\ublas\matrix.hpp"
-#include <boost\rational.hpp>
+
 #include<complex>
 #include<fstream>
 #include<iostream>
 #include<string>
 #include<vector>
+
+#include"boost\numeric\ublas\matrix.hpp"
+#include <boost\rational.hpp>
 
 using namespace boost::numeric::ublas;
 

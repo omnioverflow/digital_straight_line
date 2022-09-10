@@ -1,11 +1,9 @@
-#include "polygon.h"
+#include "Polygon.h"
 
-
-polygon::polygon(void)
+Polygon::Polygon(void)
 {
 }
 
-
-polygon::~polygon(void)
+Polygon::~Polygon(void)
 {
 }

@@ -1,6 +1,8 @@
 #pragma once
+
 #include <fstream>
 #include <string>
+
 #include "DigitalSegment.h"
 
 class Debugger {

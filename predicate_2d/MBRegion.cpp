@@ -1,5 +1,4 @@
-#include "mb_region.h"
-
+#include "MBRegion.h"
 
 MBRegion::MBRegion(void)
 {

@@ -1,32 +1,33 @@
 #pragma once
+
 #include <deque>
 #include <iostream>
 #include <limits>
 #include <math.h>
 #include <set>
 
-class Vertex2d
+class Vertex2D
 {
 public:
-	Vertex2d(void) 
+	Vertex2D(void) 
 	{ 
 		x_ = 0; y_ = 0; 
 	}
-	Vertex2d(float x, float y) { x_ = x; y_ = y; }
-	Vertex2d(const Vertex2d& v)
+	Vertex2D(float x, float y) { x_ = x; y_ = y; }
+	Vertex2D(const Vertex2D& v)
 	{
 		x_ = v.x();
 		y_ = v.y();
 	}
 
-	Vertex2d& operator = (const Vertex2d& v)
+	Vertex2D& operator = (const Vertex2D& v)
 	{
 		x_ = v.x();
 		y_ = v.y();
 		return *this;
 	}
 
-	friend bool operator < (const Vertex2d& v0, const Vertex2d v1)
+	friend bool operator < (const Vertex2D& v0, const Vertex2D v1)
 	{
 		if((v0.x() > v1.x()) || ( (v0.x() == v1.x()) && (v0.y() > v1.y()) ) )
 		{
@@ -47,7 +48,7 @@ public:
 		*/
 	}
 
-	 bool operator ==(const Vertex2d& v0)
+	bool operator ==(const Vertex2D& v0)
 	{
 		if( (v0.x() == x_) && (v0.y() == y_) )
 		{
@@ -59,7 +60,7 @@ public:
 		}
 	}
 
-	friend bool operator ==(const Vertex2d& v0, const Vertex2d& v1)
+	friend bool operator ==(const Vertex2D& v0, const Vertex2D& v1)
 	{
 		if( (v0.x() == v1.x()) && (v0.y() == v1.y()) )
 		{
@@ -71,7 +72,7 @@ public:
 		}
 	}
 
-	friend std::ostream &operator << (std::ostream &output, const Vertex2d& v)
+	friend std::ostream &operator << (std::ostream &output, const Vertex2D& v)
 	{
 		std::cout << "{Vertex:" << v.x() << ", " << v.y() << "}\n";		
 		return output;
@@ -100,7 +101,7 @@ public:
 	float y_;
 };
 
-class Line2d
+class Line2D
 {
 public:
 	float slope() { return this->slope_; }
@@ -112,23 +113,23 @@ private:
 	float intersect_y_;
 };
 
-class Polygon2d
+class Polygon2D
 {
 public:
-	Polygon2d(void);
-	virtual ~Polygon2d(void);	
+	Polygon2D(void);
+	virtual ~Polygon2D(void);
 
-	void push_counterclockwise(Vertex2d& v)
+	void push_counterclockwise(Vertex2D& v)
 	{
 		vertices_.push_back(v);
 	};
 
-	Vertex2d vertex_at(size_t index) const 
+	Vertex2D vertex_at(size_t index) const 
 	{
-		return (Vertex2d)vertices_.at(index);
+		return (Vertex2D)vertices_.at(index);
 	};
 
-	void push_back(Vertex2d& v)
+	void push_back(Vertex2D& v)
 	{
 		vertices_.push_back(v);
 	}
@@ -148,7 +149,7 @@ public:
 		vertices_.clear();
 	};
 protected:
-	std::set<Vertex2d> unique_vertices_;
-	std::deque<Vertex2d> vertices_;	
+	std::set<Vertex2D> unique_vertices_;
+	std::deque<Vertex2D> vertices_;	
 };
 

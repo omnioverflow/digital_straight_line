@@ -1,11 +1,9 @@
-#include "polygon2d.h"
+#include "Polygon2D.h"
 
-
-Polygon2d::Polygon2d(void)
+Polygon2D::Polygon2D(void)
 {
 }
 
-
-Polygon2d::~Polygon2d(void)
+Polygon2D::~Polygon2D(void)
 {
 }

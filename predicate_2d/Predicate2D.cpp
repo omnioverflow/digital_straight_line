@@ -1,8 +1,7 @@
-// predicate_2d.cpp : Defines the entry point for the console application.
+// Predicate2D.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h"
-#include "digital_segment.h"
+#include "DigitalSegment.h"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -54,4 +53,3 @@ int _tmain(int argc, _TCHAR* argv[])
 	std::cin >> c;
 	return 0;
 }
-

@@ -1,12 +1,11 @@
-#include "triangle2d.h"
+#include "Triangle2D.h"
 
 /*
-Triangle2d::Triangle2d(void)
+Triangle2D::Triangle2D(void)
 {
 }
 */
 
-
-Triangle2d::~Triangle2d(void)
+Triangle2D::~Triangle2D(void)
 {
 }

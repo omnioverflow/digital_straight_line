@@ -1,7 +1,8 @@
 #pragma once
-#include "stddef.h"
-#include "triangle2d.h"
-#include "quad2d.h"
+
+#include "Triangle2D.h"
+#include "Quad2D.h"
+
 // m*x + b = y
 class MBRegion
 {

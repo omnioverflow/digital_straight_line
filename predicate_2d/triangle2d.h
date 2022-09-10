@@ -1,14 +1,13 @@
 #pragma once
-#include "convex_polygon2d.h"
-class Triangle2d :
-	public ConvexPolygon2d
+
+#include "ConvexPolygon2D.h"
+class Triangle2D : public ConvexPolygon2D
 {
 public:	
-	Triangle2d(Vertex2d v0, Vertex2d v1, Vertex2d v2);
-	virtual ~Triangle2d(void);
-	const Vertex2d vertex_at(size_t index) const;
+	Triangle2D(Vertex2D v0, Vertex2D v1, Vertex2D v2);
+	virtual ~Triangle2D(void);
+	const Vertex2D vertex_at(size_t index) const;
 private:
-	Triangle2d(void);
-	Vertex2d v[3];
+	Triangle2D(void);
+	Vertex2D v[3];
 };
-
