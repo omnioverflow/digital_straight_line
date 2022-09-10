@@ -1,0 +1,22 @@
+# Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Compiler Logs
+*.log
+*.tlog
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# VSCode
+*.vs
