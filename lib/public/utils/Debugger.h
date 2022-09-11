@@ -3,7 +3,7 @@
 #include <fstream>
 #include <string>
 
-#include "DigitalSegment.h"
+#include "core2d/DigitalSegment.h"
 
 class Debugger {
 	static const std::string& log_filename() {
@@ -16,4 +16,4 @@ class Debugger {
 		log_file.open(log_filename());
 		log_file.close();
 	};
-};
+}; // class Debugger
