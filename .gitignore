@@ -23,3 +23,6 @@
 
 # VSCode
 *.vs
+
+# Build dir
+build
