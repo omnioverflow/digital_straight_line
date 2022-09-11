@@ -6,6 +6,7 @@
 #include<string>
 #include<vector>
 
+// FIXME: add boost lib to the project
 #include"boost\numeric\ublas\matrix.hpp"
 #include <boost\rational.hpp>
 

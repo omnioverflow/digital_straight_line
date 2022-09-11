@@ -2,14 +2,15 @@
 
 #include <iostream>
 
-#include "ConvexPolygon2D.h"
+#include "core2d/ConvexPolygon.h"
 
 class Quad2D: public ConvexPolygon2D
 {
-public:		
+public:
+	Quad2D() = delete;
 	Quad2D(Vertex2D& v0, Vertex2D& v1, Vertex2D& v2, Vertex2D& v3);
-	virtual ~Quad2D(void);	
-private:		
-	Quad2D(void);
-	Vertex2D v[4];
-};
+	virtual ~Quad2D() = default;
+
+private:
+	Vertex2D v_[4];
+}; // class Quad2D

@@ -1,18 +1,4 @@
-#include "Quad2D.h"
+#include "core2d/Quad.h"
 
-Quad2D::Quad2D(void)
-{
-}
-
-Quad2D::Quad2D(Vertex2d& v0, Vertex2d& v1, Vertex2d& v2, Vertex2d& v3)
-{	
-	v[0] = v0;
-	v[1] = v1;
-	v[2] = v2;
-	v[3] = v3;	
-}
-
-Quad2D::~Quad2D(void)
-{
-	std::cout << "Deleting quad object " << std::endl;
-}
+Quad2D::Quad2D(Vertex2D& v0, Vertex2D& v1, Vertex2D& v2, Vertex2D& v3)
+	: v_{v0, v1, v2, v3} {}

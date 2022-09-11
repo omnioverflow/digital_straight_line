@@ -17,7 +17,6 @@ set(IMPL_FILES
     impl/core2d/ConvexPolygon.cpp
     impl/core2d/DigitalSegment.cpp
     impl/core2d/MBRegion.cpp
-    impl/core2d/Polygon.cpp
     impl/core2d/Quad.cpp
     impl/core2d/Triangle.cpp
 )

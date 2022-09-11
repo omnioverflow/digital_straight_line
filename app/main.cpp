@@ -1,10 +1,6 @@
-// Predicate2D.cpp : Defines the entry point for the console application.
-//
+#include "core2d/DigitalSegment.h"
 
-#include "DigitalSegment.h"
-
-int _tmain(int argc, _TCHAR* argv[])
-{
+int main(int argc, char* argv[]) {
 	// Create dummy digital segment
 	const size_t n = 9;
 	DigitalSegment ds;
@@ -12,8 +8,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	int x[n] = {0, 1, 2, 3, 4, 5, 6, 7, 8};
 	int y[n] = {0, 0, 1, 2, 3, 3, 4, 4, 5};
-	for(size_t i = 0; i < n; i++)
-	{
+	for(size_t i = 0; i < n; i++) {
 		ds.push_back(Pixel(x[i], y[i]));
 	}	
 	std::cout << ds.length() << "\n";
@@ -27,26 +22,20 @@ int _tmain(int argc, _TCHAR* argv[])
 	DigitalSegment ds1;
 	int x1[n] = {0, 1, 2, 3, 4, 5, 6, 7, 8};
 	int y1[n] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
-	for(size_t i = 0; i < n; i++)
-	{
+	for(size_t i = 0; i < n; i++) {
 		ds1.push_back(Pixel(x1[i], y1[i]));
 	}	
 	ds1.constraint_mb_region();
 
 	bool parallel = ds || ds1;
 	if(parallel)
-	{
 		std::cout << "Digital segments are parallel\n";
-	}
 
 	parallel = ds || ds;
 	if(parallel)
-	{
 		std::cout << "Digital segments are parallel\n";
-	}
 
 	bool collinear = ds | ds1;
-
 
 	// Wait until user input
 	char c;
