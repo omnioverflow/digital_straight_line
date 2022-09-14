@@ -1,7 +1,7 @@
 #include "core2d/DigitalSegment.h"
 
 // FIXME: add boost and configure cmake accordingly
-#include <boost\numeric\ublas\blas.hpp>
+#include <boost/numeric/ublas/blas.hpp>
 #include <boost/numeric/ublas/matrix.hpp>
 
 Pixel::Pixel(int x, int y)
@@ -131,8 +131,9 @@ bool operator || (const DigitalSegment& d0, const DigitalSegment& d1) {
 	interval* intervl0 = d0.mb_region().project_onto(X_AXIS);
 	interval* intervl1 = d1.mb_region().project_onto(X_AXIS);
 
-	// Check if two intervals on m-projections intersect 
-	bool do_intersect = std::max(intervl0->begin, intervl1->begin) <= std::min(intervl0->end, intervl1->end); // if projection intervals intersect => segments are placed on parallel lines
+	// Check if two intervals on m-projections intersect
+	// if projection intervals intersect => segments are placed on parallel lines
+	bool do_intersect = std::max(intervl0->begin, intervl1->begin) <= std::min(intervl0->end, intervl1->end); 
 
 	// free memory
 	delete intervl0;
@@ -144,6 +145,7 @@ bool operator || (const DigitalSegment& d0, const DigitalSegment& d1) {
 // Check if two segments are collinear
 bool operator | (const DigitalSegment& d0, const DigitalSegment& d1)
 {
-	bool do_collide = d0.mb_region().collide(d1.mb_region()); // if intersection of mb-regions is non-empty => collinear
+	// if intersection of mb-regions is non-empty => collinear
+	bool do_collide = d0.mb_region().collide(d1.mb_region()); 
 	return do_collide;
 }
