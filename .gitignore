@@ -27,3 +27,6 @@
 
 # Build dir
 build
+
+# Third-party libs
+third-party
