@@ -1,0 +1,5 @@
+[submodule "rational"]
+	path = third-party/boost/rational
+	url = git://github.com/boostorg/rational.git
+	fetchRecurseSubmodules = on-demand
+	branch = .
