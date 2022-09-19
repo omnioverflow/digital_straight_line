@@ -3,3 +3,9 @@
 	url = git://github.com/boostorg/rational.git
 	fetchRecurseSubmodules = on-demand
 	branch = .
+
+[submodule "ublas"]
+	path = third-party/boost/numeric/ublas
+	url = git://github.com/boostorg/ublas.git
+	fetchRecurseSubmodules = on-demand
+	branch = .
