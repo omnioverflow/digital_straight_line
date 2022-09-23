@@ -20,6 +20,7 @@ set(IMPL_FILES
     impl/core2d/Quad.cpp
     impl/core2d/Triangle.cpp
 )
+
 set(SOURCE_FILES ${HEADER_FILES} ${IMPL_FILES})
 
 # ------------------------------------------------------------------------------
@@ -29,6 +30,8 @@ target_include_directories(
     Core2D
     PUBLIC 
     ${CMAKE_CURRENT_SOURCE_DIR}/public
+    ${CMAKE_CURRENT_SOURCE_DIR}/../third-party/boost/rational/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/../third-party/boost/ublas/include
 )
 
 # ------------------------------------------------------------------------------
