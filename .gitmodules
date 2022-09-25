@@ -1,7 +1,0 @@
-[submodule "third-party/boost/ublas"]
-	path = third-party/boost/ublas
-	url = https://github.com/boostorg/ublas.git
-	branch = master
-[submodule "third-party/boost/rational"]
-	path = third-party/boost/rational
-	url = https://github.com/boostorg/rational.git
