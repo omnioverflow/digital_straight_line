@@ -2,7 +2,8 @@ That is small project intended to study mathematical properties of pre-image set
 
 [Experimental Computer Science | Mathematical Sciences | Geometry and Topology]
 
-Dependencies
+
+## Dependencies
 
 * Boost Lib
 
