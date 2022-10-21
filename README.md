@@ -16,3 +16,5 @@ That will allow us to avoid floating-point errors and experimentally obtain init
 * whether pre-image sets are convex/compact/simplex, etc.
 
 Experimental results are supposed to give clear hints on formal mathematical proof.
+
+TODO: Add figures of pre-images.
